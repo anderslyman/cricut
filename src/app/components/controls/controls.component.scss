@@ -1,0 +1,40 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto 0 auto;
+  width: 400px;
+}
+
+::ng-deep {
+  .controls {
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      font-size: 1.2em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="button"] {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      width: 150px;
+      padding: 10px 20px;
+      font-size: 120%;
+      border: none;
+      border-radius: 4px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #218838;
+      }
+    }
+
+    span,
+    input {
+      margin-top: 5px;
+    }
+  }
+}

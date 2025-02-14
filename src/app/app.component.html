@@ -1,0 +1,30 @@
+<div class="banner"><img src="cricut-logo.png" />Tic Tac Toe</div>
+
+<app-tic-tac-toe [gameService]="gameService"></app-tic-tac-toe>
+
+<app-controls>
+  <span *ngIf="gameService?.isOver" class="game-over">Game Over</span>
+  <span *ngIf="gameService?.isOver" class="winning-player">
+    <span>Winner:</span>
+    <span *ngIf="gameService?.winningPlayer === 'X'">X</span>
+    <img *ngIf="gameService?.winningPlayer === 'O'" src="cricut-logo.png" />
+  </span>
+  <input
+    type="button"
+    value="New Game"
+    (click)="gameService?.startNewGame(size)"
+  />
+  <div *ngIf="!gameService?.isOver" class="size-input">
+    <span>Change Board Size:</span>
+    <input type="text" [(ngModel)]="input" (keyup.enter)="changeSize()" />
+    <span *ngIf="error" class="error-message">{{ error }}</span>
+    <input type="button" value="Save" (click)="changeSize()" />
+  </div>
+</app-controls>
+
+<div class="logging" *ngIf="gameService">
+  <h2>Logs</h2>
+  <div class="logs">
+    <div *ngFor="let log of gameService?.logs">{{ log }}</div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<table class="game" *ngIf="gameService">
+  <tr *ngFor="let x of gameService.size | makeArray">
+    <td
+      *ngFor="let y of gameService.size | makeArray"
+      (click)="selectCell(x - 1, y - 1)"
+    >
+      <span *ngIf="gameService.cells[x - 1][y - 1] === 'X'">X</span>
+      <img *ngIf="gameService.cells[x - 1][y - 1] === 'O'" src="cricut-logo.png" />
+    </td>
+  </tr>
+</table>
